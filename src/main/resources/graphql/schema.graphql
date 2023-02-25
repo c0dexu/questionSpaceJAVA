@@ -1,0 +1,33 @@
+
+type User{
+    id: ID!
+    username: String!
+    followers: [User]!
+    following: [User]!
+    joinDate: String!
+    myQuestions: [Question]
+    questionsYouFollow: [Question]
+
+}
+
+
+
+
+type Question{
+    id: ID!
+    question: String!
+    askedBy: User!
+    answers: [Answer]
+}
+
+type Answer{
+    id: ID!
+    answer: String!
+    answeredBy: User!
+    upVotes: Int!
+    upvotedBy: [User]
+}
+
+type Query{
+    getUserById(id: ID): User
+}
